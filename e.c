@@ -1,19 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct node {
-    int data;
+    char data;
     struct node* lchild;
     struct node* rchild;
 }node;
 node* root=NULL;
-node* decl(int key)
+node* decl(char key)
 {
     node* temp=(node*)malloc(sizeof(node));
     temp->rchild=temp->lchild=NULL;
     temp->data=key;
     return temp;
 }
-node* create(node* root,int key)
+node* create(node* root,char key)
 {
     if (!root)
     return decl(key);
@@ -28,14 +28,14 @@ void inorder(node* root)
     if (!root)
     return ;
     inorder(root->lchild);
-    printf ("%d ",root->data);
+    printf ("%c ",root->data);
     inorder(root->rchild);
 }
 void preorder(node* root)
 {
     if (!root)
     return ;
-    printf ("%d ",root->data);
+    printf ("%c ",root->data);
     preorder(root->lchild);
     preorder(root->rchild);
 }
@@ -45,7 +45,7 @@ void postorder(node* root)
     return ;
     postorder(root->lchild);
     postorder(root->rchild);
-    printf ("%d ",root->data);
+    printf("%c ",root->data);
 }
 int main()
 {
@@ -56,9 +56,10 @@ int main()
     {
         if (y==1)
         {
-            int key;
+            char key;
             printf ("Enter data to insert\n");
-            scanf("%d",&key);
+            fflush(stdin);
+            scanf("%c",&key);
             root=create(root,key);
         }
         printf ("To insert a node press 1 else press 0 to continue\n");
