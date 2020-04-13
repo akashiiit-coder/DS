@@ -25,9 +25,9 @@ void delete()
     else
     {
         node *prev=head;
-        while(prev && prev->link->data!=key)
+        while(prev->link && prev->link->data!=key)
         prev=prev->link;
-        if (!prev)
+        if (!prev->link)
         {
             printf ("Node not found\n");
             return;
