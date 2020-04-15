@@ -6,11 +6,24 @@ typedef struct node
     struct node* lchild;
     struct node* rchild;
 }node;
-node* create(int key)
+node* create()
 {
+    int y;
+    printf ("Enter data else -1\n");
+    scanf("%d",&y);
+    if (y==-1)
+    return NULL;
     node* temp=(node*)malloc(sizeof(node));
     temp->rchild=temp->lchild=NULL;
-    temp->data=key;
+    temp->data=y;
+    printf ("To enter left child of %d press 1\n",temp->data);
+    scanf("%d",&y);
+    if (y==1)
+    temp->lchild=create();
+    printf ("To enter right child of %d press 1\n",temp->data);
+    scanf("%d",&y);
+    if (y==1)
+    temp->rchild=create();
     return temp;
 }
 int lnodes(node* root)
@@ -31,13 +44,7 @@ int nlnodes(node* root)
 }
 int main()
 {
-    node* root=create(10);//creation of binary tree..........(a)
-    root->lchild=create(5);
-    root->rchild=create(15);
-    root->lchild->lchild=create(3);
-    root->lchild->rchild=create(7);
-    root->rchild->lchild=create(13);
-    root->rchild->rchild=create(17);
+    node* root=create();//creation of binary tree..........(a)
     printf ("No. of leaf nodes: %d\n",lnodes(root));
     printf ("No. of non leaf nodes: %d\n",nlnodes(root));
-}
+}   
