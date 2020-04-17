@@ -76,6 +76,7 @@ void delete_rear()//r--
 void display()
 {
     // printf ("r:%d\nf:%d\n",r,f);
+    if (f==-1)return ;
     if (f>r)
     {
         for (int i=f;i<max;i++)
