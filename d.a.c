@@ -1,3 +1,8 @@
+/*************************************************
+            This program was creted
+            and     verified     by
+                AKASH  ANAND
+*************************************************/
 #include <stdio.h>
 #define max 5
 int queue[max],r=-1,f=-1;
