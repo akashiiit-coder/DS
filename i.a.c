@@ -1,3 +1,8 @@
+/*************************************************
+            This program was creted
+            and     verified     by
+                AKASH  ANAND
+*************************************************/
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
