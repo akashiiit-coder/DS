@@ -1,3 +1,8 @@
+/*************************************************
+            This program was creted
+            and     verified     by
+                AKASH  ANAND
+*************************************************/
 // selection sort by exchanging data
 #include <stdio.h>
 #include <stdlib.h>
