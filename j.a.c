@@ -3,42 +3,42 @@ Created by Akash Anand *******************
 *****Branch - IT  Roll no - 11912051******
 ******************************************/
 #include<stdio.h>
-void display(int * arr ,int n)
+void display(int * arr ,int n)//prints the array
 {
     for (int i=0;i<n;i++)
     printf ("%d ",arr[i]);
     printf ("\n");
 }
-int partition(int arr[], int low,int high,int p)
+int partition(int arr[], int low,int high)/*arrange array elements such that left elements to pivot are less
+    than pivot and right elements to pratition are greater than pivot*/
 {
-    int n=high-low+1,a1[n],a2[n],i1=0,i2=0,temp,e=arr[low];
-    for (int i=low+1;i<=high;i++)//partitioning
+    int i=low+1,j=high,pivot=arr[low],temp; 
+    while (1)
     {
-        temp=arr[i];
-        if (temp<e)
-        a1[i1++]=temp;
-        else 
-        a2[i2++]=temp;
+        while(arr[i]<pivot && i<high)
+        i++;
+        while(arr[j]>pivot )
+        j--;
+        if (i<j)
+        {
+            temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+        }
+        else break;//we have found correct position
     }
-    for (int i=0;i<i1;i++)//copying the elements
-    arr[i+low]=a1[i];
-    
-    arr[i1+low]=e;
-
-    for (int i=0;i<i2;i++)
-    arr[low+i1+1+i]=a2[i];
-
-    p=i1+low;
-    return p;
+    arr[low]=arr[j];
+    arr[j]=pivot;
+    return j;// j is correct position
 }
 void quick_sort(int arr[],int l,int h)
 {
-    if (l>=h)return;
-    int p=partition(arr,l,h,p);
+    if (l>=h)return;//either array is empty or has 1 element
+    int p=partition(arr,l,h);
     quick_sort(arr,l,p-1);
     quick_sort(arr,p+1,h);
 }
-int main()
+int main()//driver function
 {
     int n;
     scanf("%d",&n);
